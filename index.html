@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>SitOnChair</title>
-    <script src="gulpfile.js"></script>
+
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="app/app.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -16,14 +17,12 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li class="site-nav show">o firmie
-                        <div class="hiden">
-                            <ul class="firm-about">
-                                <li><a href="#">Aktualności</a></li>
-                                <li><a href="#">Nasz team</a></li>
-                                <li><a href="#">Historia</a></li>
-                            </ul>
-                        </div>
+                    <li class="site-nav sub-menu ">o firmie
+                        <ol class="firm-about ">
+                            <li><a href="#">Aktualności</a></li>
+                            <li><a href="#">Nasz team</a></li>
+                            <li><a href="#">Historia</a></li>
+                        </ol>
                     </li>
                     <li class="site-nav"><a href="#">galeria</a></li>
                     <li class="site-nav"><a href="#">kotakt</a></li>
@@ -39,10 +38,11 @@
             <div class="container backgr-img">
                 <div class="arow left"><a href="#"><</a></div>
                 <div class="arow right"><a href="#">></a></div>
-                <div class="col2 ">
-                    <img src="images/black_chair.png" alt="black_chair">
-                    <img src="images/orange_chair.png" class="hiden" alt="orange chair">
-
+                <div class="col2 slider">
+                    <ul>
+                        <li class="slid-elem visible"><img src="images/black_chair.png" alt="black_chair"></li>
+                        <li class="slid-elem "><img src="images/orange_chair.png" alt="orange chair"></li>
+                    </ul>
                 </div>
                 <div class="col2">
                     <h1>sit <span>on</span> our <span>chair</span></h1>
@@ -61,11 +61,11 @@
         <div class="container">
             <div class="hero-section">
                 <div class="cols-3">
-                    <div class="col3">
+                    <div class="col3 prod-img">
                         <img src="images/box1_img.jpg">
                         <div class="name"><h3 class="product-name">Chair <span>clair</span></h3></div>
                     </div>
-                    <div class="col3">
+                    <div class="col3 prod-img">
                         <img src="images/box2_img.jpg">
                         <div class="name"><h3 class="product-name">Chair <span>margarita</span></h3></div>
                     </div>
@@ -136,6 +136,7 @@
         </div>
 
     </section>
+
     <section class="kontact-section">
         <div class="container column">
             <h2 class="long-under-line">kontakt</h2>

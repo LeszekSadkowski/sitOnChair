@@ -1,15 +1,13 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: 'Raleway', sans-serif;
 }
 
-@mixin clearfix {
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-}
 
 @mixin arrow($color,$size) {
   position: relative;
@@ -30,7 +28,8 @@
 a {
   text-decoration: none;
 }
-label{
+
+label {
   display: none;
 }
 
@@ -65,6 +64,7 @@ label{
   display: flex;
   align-items: center;
   width: 100%;
+  height: 100%;
   justify-content: space-between;
 }
 
@@ -78,19 +78,24 @@ label{
   justify-items: flex-end;
   text-transform: uppercase;
   display: flex;
+  height: 100%;
 
-}
-
-.hiden {
-  display: none;
-}
-
-.show:hover {
-  .hiden {
+  ul{
     display: block;
+    line-height: 3.75em;
 
   }
+  li{
+    height: 100%;
+    text-align: center;
+    &:hover{
+      background-color: #23C8AA;
+  }
+
 }
+}
+
+
 
 .site-nav {
   display: inline-block;
@@ -103,33 +108,52 @@ label{
     color: white;
 
   }
+
+}
+.sub-menu:hover{
+  .firm-about{
+    display: block;
+  }
 }
 
 .firm-about {
 
   @include arrow(rgba(0, 0, 0, 0.9), 10px);
+  background-color: rgb(0, 0, 0);
   position: absolute;
   top: 70px;
   right: 240px;
-  background-color: rgb(0, 0, 0);
   list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
+  display: none;
+  line-height: 2em;
+  text-align: center;
+  padding-left: 10px;
   z-index: 3;
+  padding-right: 10px;
+  &:hover{
+    display:block;
+  }
 
-  li {
-    position: relative;
-    margin-right: 30px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-top: 5px;
-    a {
+}
+.prod-img{
 
-      text-transform: none;
-    }
+  height: 225px;
+
+  overflow: hidden;
+  cursor: pointer;
+  img{
+    transition: 1.5s all ;
+  }
+  .name{
+    transition: 0.3s all
+  }
+}
+.prod-img:hover{
+  img{
+    transform:scale(1.15);
+  }
+  .name{
+    transform: scale(0);
   }
 }
 
@@ -156,7 +180,7 @@ label{
 .col2 {
   text-align: center;
   width: 50%;
-  padding-right: 130px;
+  padding-right: 57px;
 
   display: flex;
   flex-direction: column;
@@ -184,19 +208,34 @@ label{
   position: relative;
   display: block;
   width: 2em;
-  height: 1em;
+  height: 60px;
   bottom: 18px;
   font-size: 40px;
-
+  cursor: pointer;
+  z-index: 3;
   a {
     color: #8de0d2;
+    font-size: 72px;
+
   }
 
 }
+.slider{
+ ul {
+   list-style: none;
+   display: block;
 
-.left {
-  left: -4px;
+
+
+
+ }
+
 }
+.visible{
+  display: none;
+}
+
+
 
 .right {
   right: -860px;
@@ -221,16 +260,18 @@ label{
 
 .col3 {
   display: block;
+  width: 33.3333%;
   padding-right: 10px;
   padding-left: 10px;
 
   position: relative;
   .produkt-habits {
     display: block;
-    border: #969899;
+    border: 1px solid #969899;
     padding-bottom: 25px;
     width: 100%;
-    margin-top: -20px;
+    height: 225px;
+
     h3:after {
       content: '';
       display: block;
@@ -255,7 +296,7 @@ label{
   background-color: #23C8AA;
   width: 200px;
   top: 2px;
-  right: -5px;
+
 }
 
 .name {
@@ -317,7 +358,7 @@ label{
 }
 
 .bookmark {
-  margin-top: 30px;
+  margin-top: 50px;
   margin-right: -10px;
   margin-left: -10px;
   height: 500px;
@@ -341,8 +382,8 @@ label{
 .green {
   margin-left: 5px;
   margin-right: 5px;
-  margin-top: 30px;
-  height:500px;
+  margin-top: 50px;
+  height: 500px;
   width: 320px;
   display: flex;
   position: relative;
@@ -359,13 +400,13 @@ label{
     p {
       color: #23C8AA;
     }
-    .price-text{
-      color:#23C8AA;
+    .price-text {
+      color: #23C8AA;
     }
   }
   .white {
     background-color: white;
-    a  {
+    a {
       color: #23C8AA;
     }
   }
@@ -419,12 +460,12 @@ label{
     &:nth-of-type(2n+1) {
       background-color: #d2d4d5;
       font-size: 20px;
-      color:#9a9c9d;
+      color: #9a9c9d;
     }
     &:nth-of-type(2n) {
       background-color: #f0f0f0;
       font-size: 20px;
-      color:#9a9c9d;
+      color: #9a9c9d;
     }
   }
 }
@@ -442,10 +483,9 @@ label{
   display: flex;
   justify-content: center;
   align-items: center;
-  line-height: 0;
+  line-height: 1em;
   padding-top: 5px;
   background-color: white;
-
 
   p {
     margin-top: 0;
@@ -454,7 +494,7 @@ label{
     font-weight: 600;
     font-size: 45px;
   }
-  span{
+  span {
     margin-top: 5px;
     color: silver;
     text-transform: uppercase;
@@ -474,14 +514,13 @@ label{
   text-transform: uppercase;
 }
 
-
-  .button:hover {
-    background-color: darken(#23C8AA, 20%);
-  }
-
+.button:hover {
+  background-color: darken(#23C8AA, 20%);
+}
 
 h2 {
   text-transform: uppercase;
+  margin-top: 1.5em;
   font-weight: lighter;
   color: #9a9c9d;
 }
@@ -493,22 +532,27 @@ h2 {
     padding-left: 0;
   }
 }
-.cols-2{
+
+.cols-2 {
   width: 100%;
 }
-.asym40{
+
+.asym40 {
   width: 40%;
 }
-.asym60{
+
+.asym60 {
   width: 60%;
 }
-.cotnact-form{
+
+.cotnact-form {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.form-control{
+
+.form-control {
   width: 100%;
   height: 50px;
   margin-top: 20px;
@@ -517,21 +561,23 @@ h2 {
   color: rgba(154, 156, 157, 0.5);
   border: 2px solid #23C8AA;
 }
-.text-area{
+
+.text-area {
   height: 100px;
   color: #9a9c9d;
 }
 
-.form-button{
+.form-button {
   width: 250px;
   height: 60px;
   font-family: 'Raleway', sans-serif;
   font-size: 25px;
   border: none;
-  color:white;
+  color: white;
   margin-top: -50px;
 }
-.red-chair{
+
+.red-chair {
   width: 200px;
   height: 200px;
   margin-top: -45px;
@@ -541,14 +587,16 @@ h2 {
   background-repeat: no-repeat;
 
 }
-.form-ok{
+
+.form-ok {
   height: 60px;
   width: 60px;
   margin-bottom: 36px;
 }
-.site-footer{
 
-  .container{
+.site-footer {
+
+  .container {
     padding-left: 0;
     padding-right: 0;
     display: flex;
@@ -559,18 +607,23 @@ h2 {
   }
 
 }
-.footer-graphic{
+
+.footer-graphic {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-content: center;
 }
-.footer-logo{
-  margin-left:10px ;
+
+.footer-logo {
+  margin-left: 10px;
   text-transform: uppercase;
   font-size: 16px;
   line-height: 32px;
-  span{
+  span {
     font-weight: bold;
   }
 }
+
+
+
